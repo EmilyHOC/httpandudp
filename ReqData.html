@@ -1,0 +1,25 @@
+<!
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="http://localhost:63342/">
+    <title>使用ajax获取Node.js服务器数据</title>
+    <script type="text/javascript">
+        function GetData() {
+            var xhr=new XMLHttpRequest();
+            xhr.open("GET","http://localhost:63342",true);
+            xhr.onreadystatechange=function () {
+                if ((xhr.readyState==4&&xhr.status==200)){
+                    document.getElementById("div").innerHTML=xhr.responseText;
+                }
+            }
+            xhr.send(null);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="获取数据" onclick="GetData()"/>
+    <div id="div"></div>
+
+</body>
+</html>
